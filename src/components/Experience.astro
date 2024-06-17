@@ -1,0 +1,44 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCIE = [
+  {
+    date: "Actualmente...",
+    title: "Analista Desarrollador",
+    company: "Business Development Group, S.A",
+    tools:
+      "TypeScript, JavaScript, nodesJs, Express, NestJs, ReactJs, ReactNative, Flutter, Ionic, Angular, MySql, Postgres, Oracle Db, MongoDb, Aws, Digital Ocean, Git, Gitlab, Google WorkSpace",
+    description:
+      "Responsable de la plataforma CRM, ERP, crear componentes y utilidades para actualizaciones de las aplicaciones web. Mejora de un 30% en la entrega de software.",
+    link: "https://www.bdgsa.net",
+  },
+  {
+    date: "Septiembre 2022",
+    title: "Desarrollador JR",
+    company: "Informática Guatemala",
+    tools:
+      "PHP, JavaScript, CodeIgniter, MySql, Vps Git, Gitlab, Google WorkSpace",
+    description:
+      "Responsable de la plataforma CRM, ERP, crear componentes y utilidades para actualizaciones de las aplicaciones web. Mejora de un 30% en la entrega de software.",
+    link: "https://www.informatica.com.gt",
+  },
+  {
+    date: "Marzo 2021",
+    title: "Desarrollo app mobile (Android & IOS)",
+    company: "Somos Progreso",
+    tools: "Flutter, Dart, ApiRest, Sqlite, Notifications, Packages.",
+    description:
+      "Desarrollo de app mobile para el control de marcaciones GPS, scanner de codigos QR, recepcion de notificaciones. Se desarrollo en FLUTTER como tecnología principal, consumimiento api rest para la persistencia de la información.",
+    link: "https://play.google.com/store/apps/details?id=com.mc.cemprog&hl=es_BO&pli=1",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

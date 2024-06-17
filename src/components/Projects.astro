@@ -1,0 +1,127 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+};
+const PROJECTS = [
+  {
+    title: "Ingenieria en sistemas",
+    description: "Universidad Mariano Gálvez de guatemal",
+    link: "https://umg.edu.gt/ingenieria/sistemas",
+    github: "#",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMeEAv4RI3ZdVY7IW4PwNrwAOOrfKtB5ZD7w&s",
+    tags: [],
+  },
+  {
+    title: "SCRUMstudy",
+    description: "SCRUMstudy - Accreditation Body for Scrum and Agile",
+    link: "https://www.scrumstudy.com/certification/verify?type=SFC&number=1011824",
+    image: "https://www.scrumstudy.com/Scrum-Images/brand-logo/badge-SFC.png",
+    tags: [],
+  },
+  {
+    title: "UDEMY",
+    description: "TypeScript sin fronteras: guía definitiva",
+    link: "https://www.udemy.com/certificate/UC-10f33e29-9a5c-4c1a-9f71-8ce9d0b63a58/",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9tXhhNXbzL8KBeDoyMfLww-edaY1H0deWqw&s",
+    tags: [],
+  },
+  {
+    title: "UDEMY",
+    description: "Docker - Guía práctica de uso para desarrolladores",
+    link: "https://www.udemy.com/certificate/UC-ac730668-64ea-41fa-88d3-45d4a8433297/",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwNLcCUBaC99r3nN10jX1asJQgcmxVzbtkgg&s",
+    tags: [],
+  },
+  {
+    title: "UDEMY",
+    description: "Nest: Desarrollo backend escalable con Node",
+    link: "https://www.udemy.com/certificate/UC-b77b6577-35bc-492f-8959-b8af467a002f/",
+    image: "https://miro.medium.com/v2/resize:fit:1040/0*zRv5TkRmhAyLnG-t.png",
+    tags: [],
+  },
+  {
+    title: "UDEMY",
+    description: "Flutter: Una introducción al SDK de Google",
+    link: "https://www.udemy.com/certificate/UC-317dda12-ea31-4f02-9d92-f70e2ab2f500/?utm_medium=email&utm_campaign=email&utm_source=sendgrid.com",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQdTuz5Nhz4jIoJadKkX1ZfnaT4gnqgjuTg&s",
+    tags: [],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/3">
+          <div>
+            <img
+              alt="Recién llegado vs 5 años en Nueva Zelanda"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale- md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+              style={{ width: "50%" }}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
