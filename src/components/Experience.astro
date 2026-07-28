@@ -1,44 +1,67 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
+
 const EXPERIENCIE = [
   {
-    date: "Actualmente...",
-    title: "Analista Desarrollador Middle",
-    company: "Business Development Group, S.A",
+    date: "Marzo 2022 - Julio 2026",
+    title: "Analista de Software / Desarrollador Senior",
+    company: "Business Development Group, S.A. (BDG)",
     tools:
-      "TypeScript, JavaScript, Node.js, Express, NestJS, ReactJS, React Native, Flutter, Ionic, Angular, MySQL, PostgreSQL, Oracle DB, MongoDB, AWS, Digital Ocean, Git, GitLab, Google Workspace, Slack, Jira, Scrum, Azure, OneSignal, FacePhi, SmartID, WebSocket, GraphQL, Docker, JWT, cifrado AES con IV, Python, Kotlin",
+      "NestJS, Node.js, Rust, Java, Spring Boot (JPA), Flutter, React Native, Angular 21, Microservicios, Docker, AWS, PostgreSQL, MySQL, Oracle DB, Cifrado AES, WebSockets, GraphQL, Git",
     description:
-      "Responsable del desarrollo de plataformas móviles, APIs REST, CRM y ERP para clientes del sector bancario y logístico, impactando a más de 4 millones de usuarios. Implementé soluciones escalables y seguras usando tecnologías modernas como NestJS, Flutter, FacePhi (biometría), cifrado con IV, WebSockets y GraphQL. Logré mejorar en un 50% los tiempos de entrega de software, priorizando la calidad, rendimiento y escalabilidad.",
+      "Líder de desarrollo en plataformas bancarias, móviles y microservicios backend de alto rendimiento para clientes corporativos y logísticos.",
+    highlights: [
+      "Diseño y construcción de arquitecturas distribuídas de microservicios con NestJS, Rust y Spring Boot en contenedores Docker sobre AWS.",
+      "Optimización en un 50% de tiempos de entrega mediante desarrollo modular de componentes reutilizables en Flutter y React Native.",
+      "Integración de autenticación biométrica FacePhi, cifrado AES con IV y pasarelas de comunicación en tiempo real con WebSockets.",
+    ],
     link: "https://www.bdgsa.net",
   },
   {
-    date: "Septiembre 2022",
-    title: "Desarrollador JR",
+    date: "Enero 2021 - Febrero 2022",
+    title: "Desarrollador Web (Backend PHP & Frontend JS)",
     company: "Informática Guatemala",
     tools:
-      "PHP, JavaScript, CodeIgniter, MySQL, VPS, Git, GitLab, Google Workspace",
+      "PHP, CodeIgniter, JavaScript, HTML5, CSS, MySQL, Linux VPS, Git, GitLab, GitHub",
     description:
-      "Encargado del desarrollo y mantenimiento de plataformas CRM y ERP basadas en PHP y CodeIgniter. Optimicé procesos internos mediante la creación de nuevos componentes reutilizables, logrando una mejora del 30% en la entrega de funcionalidades. Trabajé en entornos colaborativos utilizando control de versiones y herramientas de gestión de proyectos.",
+      "Mantenimiento, optimización y creación de nuevos módulos para plataformas ERP y CRM adaptadas a clientes corporativos.",
+    highlights: [
+      "Mejora del 30% en la velocidad de respuesta de módulos mediante optimización de consultas SQL y refactorización en CodeIgniter.",
+      "Control de versiones y despliegue continuo colaborativo en entornos GitLab y GitHub.",
+    ],
     link: "https://www.informatica.com.gt",
   },
   {
-    date: "Marzo 2021",
-    title: "Desarrollador de App Móvil (Android & iOS)",
-    company: "Somos Progreso",
-    tools: "Flutter, Dart, API REST, SQLite, Notificaciones push, QR Scanner",
+    date: "Agosto 2020 - Enero 2022",
+    title: "Desarrollador de Aplicaciones Móviles",
+    company: "sysavan (Cementos Progreso)",
+    tools: "Flutter, Dart, API REST, SQLite, Notificaciones Push, GPS, QR Scanner",
     description:
-      "Desarrollé desde cero una aplicación móvil multiplataforma en Flutter para el registro de marcaciones GPS, escaneo de códigos QR y recepción de notificaciones. Se integró con una API REST para la persistencia de datos y un sistema local con SQLite. La app fue publicada en Play Store y facilitó el control de asistencia y ubicación de colaboradores en campo.",
-    link: "https://play.google.com/store/apps/details?id=com.mc.cemprog&hl=es_BO&pli=1",
+      "Desarrollo integral de aplicación móvil multiplataforma para marcaciones GPS y asistencia de colaboradores en campo.",
+    highlights: [
+      "Construcción en Flutter con persistencia local en SQLite y sincronización de datos mediante API REST.",
+      "Publicación oficial en Google Play Store para el control operativo de Cementos Progreso.",
+    ],
+    link: "https://play.google.com/store/apps/details?id=com.mc.cemprog",
+  },
+  {
+    date: "Julio 2015 - Julio 2018",
+    title: "Desarrollador JR",
+    company: "Rocksoft",
+    tools: "HTML, CSS, JavaScript, PHP, MySQL, Git",
+    description:
+      "Apoyo en tareas iniciales de desarrollo de software, resolución de bugs y aprendizaje continuo de buenas prácticas de programación.",
+    highlights: [
+      "Inicios en la industria del software adquiriendo bases sólidas de programación web y lógica de sistemas.",
+    ],
   },
 ];
 ---
 
-<ol class="relative mt-16">
+<div class="relative border-l border-zinc-200 dark:border-zinc-800 ml-3 sm:ml-6 space-y-2">
   {
     EXPERIENCIE.map((experiencie) => (
-      <li class="">
-        <ExperienceItem {...experiencie} />
-      </li>
+      <ExperienceItem {...experiencie} />
     ))
   }
-</ol>
+</div>

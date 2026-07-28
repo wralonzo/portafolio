@@ -8,45 +8,64 @@ interface Props {
   link?: string;
   date: string;
   tools: string;
+  highlights?: string[];
 }
 
-const { title, company, description, link, date, tools } = Astro.props;
+const { title, company, description, link, date, tools, highlights } = Astro.props;
 ---
 
 <div
-  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]"
+  class="relative pl-6 pb-12 group last:pb-0 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-indigo-500 before:to-transparent"
 >
-  <div class="relative pb-12 md:col-span-2">
-    <div class="sticky top-0">
-      <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl"
-        >&bull;</span
-      >
+  <span
+    class="absolute left-[-5px] top-2 size-3 rounded-full bg-indigo-600 ring-4 ring-white dark:ring-zinc-900 group-hover:scale-125 transition duration-300"
+  ></span>
 
-      <h3 class="text-xl font-bold text-yellow-400">{title}</h3>
-      <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
+    <div>
+      <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+        {title}
+      </h3>
+      <h4 class="text-base font-semibold text-indigo-600 dark:text-indigo-400">
         {company}
       </h4>
-      <span>
-        {tools}
-      </span>
-      <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80"
-        >{date}</time
-      >
     </div>
+    <time class="text-xs font-semibold px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 w-fit">
+      {date}
+    </time>
   </div>
-  <div
-    class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3"
-  >
+
+  <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base my-3">
     {description}
-    {
-      link && (
+  </p>
+
+  {highlights && highlights.length > 0 && (
+    <ul class="mb-4 space-y-1.5 text-sm text-zinc-700 dark:text-zinc-300">
+      {highlights.map((item) => (
+        <li class="flex items-start gap-2">
+          <span class="text-indigo-500 font-bold">✓</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <div class="flex flex-wrap gap-1.5 mt-3 mb-4">
+    {tools.split(",").slice(0, 10).map((tool) => (
+      <span class="px-2.5 py-0.5 text-xs font-medium bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 rounded border border-indigo-100 dark:border-indigo-900/40">
+        {tool.trim()}
+      </span>
+    ))}
+  </div>
+
+  {
+    link && (
+      <div class="mt-2">
         <LinkInline href={link}>
-          Saber más{" "}
+          Ver sitio / empresa{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-5 icon icon-tabler icon-tabler-chevron-right"
-            width="24"
-            height="24"
+            class="size-4 inline ml-0.5"
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
@@ -54,13 +73,11 @@ const { title, company, description, link, date, tools } = Astro.props;
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 6l6 6l-6 6" />
-            </>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 6l6 6l-6 6" />
           </svg>
         </LinkInline>
-      )
-    }
-  </div>
+      </div>
+    )
+  }
 </div>

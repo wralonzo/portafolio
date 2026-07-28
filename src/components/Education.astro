@@ -1,0 +1,148 @@
+---
+import SchoolIcon from "./icons/SchoolIcon.astro";
+import CertificateIcon from "./icons/CertificateIcon.astro";
+import LinkInline from "./LinkInline.astro";
+
+const ACADEMIC = [
+  {
+    title: "Maestría en Redes y Telecomunicaciones, Tecnología de la Información",
+    institution: "Universidad Mariano Gálvez de Guatemala",
+    status: "En curso",
+    badge: "Postgrado / Maestría",
+  },
+  {
+    title: "Ingeniería en Sistemas de Información y Ciencias de la Computación",
+    institution: "Universidad Mariano Gálvez de Guatemala",
+    status: "Fase final",
+    link: "https://umg.edu.gt/ingenieria/sistemas",
+    badge: "Grado Universitario",
+  },
+  {
+    title: "Perito en Administración de Empresas",
+    institution: "Formación de Nivel Medio",
+    status: "Completado",
+    badge: "Administración",
+  },
+];
+
+const LANGUAGES = [
+  { language: "Español", level: "Nativo", badge: "🇪🇸 Nativo" },
+  { language: "Inglés", level: "A2 (Comprensión Técnica B1)", badge: "🇺🇸 EN B1 (Técnico)" },
+];
+
+const CERTIFICATIONS = [
+  {
+    title: "Principios SOLID - Mejora la Calidad de tu Código",
+    issuer: "Especialización en Arquitectura",
+  },
+  {
+    title: "Aprende NestJS desde 0 (Microservicios & REST)",
+    issuer: "Desarrollo Backend Escalable",
+  },
+  {
+    title: "React & Node.js para aplicaciones móviles y multidispositivos",
+    issuer: "Desarrollo Full Stack",
+  },
+  {
+    title: "JavaScript Moderno Guía Definitiva & Prototypes",
+    issuer: "Especialización Frontend / JS",
+  },
+  {
+    title: "Aprende Ionic 7 con proyectos prácticos",
+    issuer: "Desarrollo Móvil Multiplataforma",
+  },
+  {
+    title: "SCRUMstudy SFC™ (Scrum Fundamentals Certified)",
+    issuer: "Agile & Scrum Framework",
+    link: "https://www.scrumstudy.com/certification/verify?type=SFC&number=1011824",
+  },
+];
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <!-- Grados Académicos e Idiomas -->
+  <div class="space-y-6">
+    <h3 class="text-xl font-bold flex items-center gap-2 text-zinc-900 dark:text-zinc-100">
+      <SchoolIcon class="size-6 text-indigo-500" />
+      Formación Académica
+    </h3>
+
+    <div class="space-y-4">
+      {
+        ACADEMIC.map((item) => (
+          <div class="p-5 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="px-2.5 py-0.5 text-xs font-semibold rounded bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300 border border-purple-200 dark:border-purple-800/40">
+                {item.badge}
+              </span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/40">
+                {item.status}
+              </span>
+            </div>
+            <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+              {item.title}
+            </h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1 mb-3">
+              {item.institution}
+            </p>
+            {item.link && (
+              <LinkInline href={item.link}>
+                Ver Carrera Universitaria
+              </LinkInline>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Idiomas -->
+    <div class="p-5 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm mt-6">
+      <h4 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
+        <span>🗣️</span> Idiomas
+      </h4>
+      <div class="flex flex-wrap gap-3">
+        {
+          LANGUAGES.map((lang) => (
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-zinc-800 dark:text-zinc-200">
+              <span>{lang.badge}</span>
+              <span class="text-zinc-500 dark:text-zinc-400">({lang.level})</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificaciones & Especializaciones -->
+  <div class="space-y-6">
+    <h3 class="text-xl font-bold flex items-center gap-2 text-zinc-900 dark:text-zinc-100">
+      <CertificateIcon class="size-6 text-purple-500" />
+      Certificaciones & Cursos
+    </h3>
+
+    <div class="space-y-3">
+      {
+        CERTIFICATIONS.map((cert) => (
+          <div class="p-3.5 rounded-xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm flex items-center justify-between gap-4">
+            <div>
+              <h4 class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                {cert.title}
+              </h4>
+              <span class="text-xs text-zinc-500 dark:text-zinc-400">{cert.issuer}</span>
+            </div>
+            {cert.link && (
+              <a
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3 py-1.5 text-xs font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 rounded-lg transition shrink-0"
+              >
+                Verificar
+              </a>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

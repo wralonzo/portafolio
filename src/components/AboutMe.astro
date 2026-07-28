@@ -3,84 +3,39 @@ const personalImageAlt = "Willian Alonzo";
 ---
 
 <article
-  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+  class="flex flex-col items-center justify-center gap-8 text-zinc-700 dark:text-zinc-300 md:flex-row p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm"
 >
   <div
-    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+    class="[&>p]:mb-4 text-pretty order-2 md:order-1 text-sm sm:text-base leading-relaxed"
   >
     <p>
-      Me llamo Willian Alonzo pero mis amigos me llaman Will. Empecé el desarrollo Frontned, con el desarrollo de un CRM, tenía 25 años. Actualmente estoy <strong
-        >desarrollando aplicaciones web y móviles para empresas multinacionales</strong
-      >.
+      Me llamo <strong class="text-indigo-600 dark:text-indigo-400 font-semibold">Willian Roberto Alonzo Pérez</strong>. Soy Desarrollador de Software Full Stack apasionado con más de 3 años de experiencia en el diseño, desarrollo e implementación de aplicaciones móviles, web y arquitecturas backend para sectores clave como <strong class="text-zinc-900 dark:text-white font-semibold">Banca, Logística y Gestión Empresarial</strong> en Guatemala.
     </p>
 
     <p>
-      Como desarrollador Frontned <strong
-        >Colaborar en creacion de apps web y mobile en las tecnologías
-        solicitadas</strong
-      >. Utilizando tecnologias ágiles para el desarrollo.
+      En el área de <strong class="text-indigo-600 dark:text-indigo-400 font-semibold">Desarrollo Mobile & Multiplataforma</strong>, cuento con experiencia comprobada en <strong class="font-medium text-zinc-900 dark:text-white">Flutter (Dart), React Native, Ionic, Jetpack Compose (Kotlin/KMP)</strong> y geofencing para automatización de control operativo en campo.
     </p>
 
     <p>
-      Como Desarrollador Backend, <strong
-        >Cuento con experiencia en el desarrollo de Apis para la persistencia de
-        la información, utilizando las buenas prácticas de arquitecturas y
-        código limpio
-      </strong>. Mi objetivo es mejorar cada uno de los desarrollos y su optimo
-      funcionamiento.
+      Como <strong class="text-purple-600 dark:text-purple-400 font-semibold">Ingeniero Backend & Cloud</strong>, me especializo en construir APIs escalables y seguras con <strong class="font-medium text-zinc-900 dark:text-white">Node.js (NestJS, Express), Java Spring Boot (JPA), Rust, Python (Django, Flask) y PHP (CodeIgniter)</strong>, integrando biometría facial (FacePhi), OCR, bases de datos (PostgreSQL, Oracle PL/SQL, MySQL, MongoDB) y contenedores Docker en AWS.
+    </p>
+
+    <p class="font-medium text-indigo-700 dark:text-indigo-300">
+      Mi enfoque está orientado a resultados, trabajo colaborativo en metodologías ágiles (Scrum), rigor técnico y aplicación de principios SOLID para entregar software sostenible alineado a los objetivos del negocio.
     </p>
   </div>
 
-  <img
-    width="200"
-    height="200"
-    src="https://media.licdn.com/dms/image/v2/D5603AQF8l37lD4Xtvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1702144295717?e=1756339200&v=beta&t=xXVytT266PZPsMj1525cR3tKCNLUCm2r8iZCX0rEjTI"
-    alt={personalImageAlt}
-    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
-    style="object-position: 50% 50%"
-  />
+  <div class="relative order-1 md:order-2 shrink-0 group">
+    <div
+      class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"
+    >
+    </div>
+    <img
+      width="200"
+      height="200"
+      src="/projects/profile.jpeg"
+      alt={personalImageAlt}
+      class="relative object-cover w-48 h-48 sm:w-56 sm:h-56 p-1 aspect-square rounded-2xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800"
+    />
+  </div>
 </article>
-
-<!-- FRASES PROHIBIDAS EN VUESTRO PORTFOLIO
-
-<p>
-  Mi sueño es encontrar mi primer empleo en el mundo de la programación. Una empresa donde pueda seguir aprendiendo. ❌
-</p>
-
-<p>
-  ❌ Apasionado de la programación desde chekitito. Me encantan los ordenadores y crear páginas web buenas y rápidas con la última tecnología.
-</p>
-
-<p>
-  Trabajo bien en equipo. Siempre estoy aprendiendo cosas nuevas.
-</p>
-
--------------------------------------
-
---------------------------------------
-
-<p>
-  ¡Soy Leo! Estudié Derecho Empresarial y, tras años ejerciendo, me pasé al mundo de la Programación. Desde entonces disfruto creando experiencias web para los usuarios.
-</p>
-
-<p>
-  Entre mis éxitos destaco que durante el Grado Superior, ayudé a mis compañeros a aprender sobre TDD. Me encanta el testing, creo en su importancia, y me gusta compartir mi conocimiento sobre ello.
-</p>
-
-<p>
-  Cuento con experiencia desarrollando aplicaciones móviles, y he creado una iniciativa llamada X para mezclar mis dos pasiones: la programación y el derecho. Ayudando a la sociedad a acceso a una defensa justa.
-</p>
-
----------------------------------------
-
-<p>Me llamo Sara, tengo 25 años y soy de Santiago, Chile 🇨🇱. Terminé mis estudios como Desarrolladora Web. Me encanta enfocarme en la parte del rendimiento, para ofrecer la mejora experiencia al usuario.</p>
-
-<p>
-  Colaboro en la organización del MeetUp local BeerJS donde reunimos a desarrolladores de Santiago para compartir conocimiento y experiencias. El año 2023 hicimos un total de 25 charlas con más de 2000 asistentes.
-</p>
-
-<p>
-  Además de participar activamente en la comunidad, he participado en la Hackathon de Midudev quedando en 3er puesto con mi proyecto _Chatty_, donde usando IA podías interactuar con un PDF. ¡Échale un vistazo!
-</p>
-
--->

@@ -1,0 +1,88 @@
+---
+const SKILL_CATEGORIES = [
+  {
+    title: "Backend & Microservicios",
+    icon: "⚡",
+    skills: [
+      { name: "Node.js / NestJS", highlight: true },
+      { name: "Rust", highlight: true },
+      { name: "Spring Boot (JPA)", highlight: true },
+      { name: "TypeScript / ES6+", highlight: true },
+      { name: "REST APIs & GraphQL", highlight: true },
+      { name: "WebSockets" },
+      { name: "Express.js" },
+      { name: "Python" },
+      { name: "Cifrado AES / IV" },
+      { name: "Arquitectura CQRS" },
+    ],
+  },
+  {
+    title: "Desarrollo Mobile",
+    icon: "📱",
+    skills: [
+      { name: "iOS (Swift)", highlight: true },
+      { name: "Flutter / Dart", highlight: true },
+      { name: "React Native", highlight: true },
+      { name: "Jetpack Compose", highlight: true },
+      { name: "Kotlin Multiplatform (KMP)", highlight: true },
+      { name: "Ionic 7" },
+      { name: "SQLite & Offline Sync" },
+      { name: "GPS & QR Scanner" },
+      { name: "Notificaciones Push" },
+    ],
+  },
+  {
+    title: "Frontend & Web Apps",
+    icon: "🌐",
+    skills: [
+      { name: "Angular 21", highlight: true },
+      { name: "ReactJS", highlight: true },
+      { name: "Tailwind CSS", highlight: true },
+      { name: "Astro" },
+      { name: "HTML5 / CSS3" },
+      { name: "State Management" },
+    ],
+  },
+  {
+    title: "Cloud, DevOps & Herramientas",
+    icon: "☁️",
+    skills: [
+      { name: "AWS (EC2, S3, CloudWatch)", highlight: true },
+      { name: "Docker", highlight: true },
+      { name: "Linux VPS", highlight: true },
+      { name: "Git & GitLab CI" },
+      { name: "Claude Code", highlight: true },
+      { name: "Principios SOLID" },
+      { name: "Clean Architecture" },
+    ],
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {
+    SKILL_CATEGORIES.map((category) => (
+      <div class="p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm transition duration-300 hover:border-indigo-500/50 hover:shadow-md">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">{category.icon}</span>
+          <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+            {category.title}
+          </h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {category.skills.map((skill) => (
+            <span
+              class={`px-3 py-1.5 text-xs font-medium rounded-lg border transition ${
+                skill.highlight
+                  ? "bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/60 font-semibold"
+                  : "bg-zinc-100 dark:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 border-zinc-200/60 dark:border-zinc-700/60"
+              }`}
+            >
+              {skill.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>

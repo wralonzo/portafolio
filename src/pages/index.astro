@@ -4,51 +4,94 @@ import Layout from "@/layouts/Layout.astro";
 import AboutMe from "@/components/AboutMe.astro";
 import Briefcase from "@/components/icons/Briefcase.astro";
 import CodeIcon from "@/components/icons/Code.astro";
+import CpuIcon from "@/components/icons/CpuIcon.astro";
+import SchoolIcon from "@/components/icons/SchoolIcon.astro";
 import Experience from "@/components/Experience.astro";
 import ProfileCheck from "@/components/icons/ProfileCheck.astro";
 import Projects from "@/components/Projects.astro";
+import Skills from "@/components/Skills.astro";
+import Services from "@/components/Services.astro";
+import Education from "@/components/Education.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Hero from "@/components/Hero.astro";
 ---
 
 <Layout
-  title="Porfolio de wralonzo - Desarrollador y Programador Backend | Mobile con 3 años de experiencia"
-  description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+  title="Willian Alonzo | Full Stack & Mobile Engineer (Flutter, KMP, Node.js, Rust, Spring Boot)"
+  description="Portafolio profesional de Willian Alonzo, M.Sc. en Redes y Telecomunicaciones e Ingeniero en Sistemas. Desarrollador Full Stack & Mobile (Flutter, React Native, Jetpack Compose, KMP, NestJS, Spring Boot, Rust, AWS)."
 >
   <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
+    <!-- Hero / Inicio Section -->
+    <SectionContainer id="inicio" class="py-12 md:py-20">
       <Hero />
     </SectionContainer>
+
+    <div class="space-y-28 max-w-4xl mx-auto">
+      <!-- Experiencia Laboral -->
+      <SectionContainer id="experiencia">
+        <h2
+          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-zinc-900 dark:text-zinc-100"
+        >
+          <Briefcase class="size-8 text-indigo-500" />
+          Experiencia Laboral
+        </h2>
+        <Experience />
+      </SectionContainer>
+
+      <!-- Proyectos Destacados -->
+      <SectionContainer id="proyectos">
+        <h2
+          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-zinc-900 dark:text-zinc-100"
+        >
+          <CodeIcon class="size-8 text-indigo-500" />
+          Proyectos Destacados
+        </h2>
+        <Projects />
+      </SectionContainer>
+
+      <!-- Habilidades & Stack Tecnológico -->
+      <SectionContainer id="habilidades">
+        <h2
+          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-zinc-900 dark:text-zinc-100"
+        >
+          <CpuIcon class="size-8 text-indigo-500" />
+          Habilidades & Stack Tecnológico
+        </h2>
+        <Skills />
+      </SectionContainer>
+
+      <!-- Servicios Freelance & Consultoría -->
+      <SectionContainer id="servicios">
+        <h2
+          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-zinc-900 dark:text-zinc-100"
+        >
+          <span class="text-3xl">💼</span>
+          Servicios Freelance & Consultoría IT
+        </h2>
+        <Services />
+      </SectionContainer>
+
+      <!-- Educación & Certificaciones -->
+      <SectionContainer id="educacion">
+        <h2
+          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-zinc-900 dark:text-zinc-100"
+        >
+          <SchoolIcon class="size-8 text-indigo-500" />
+          Educación & Certificaciones
+        </h2>
+        <Education />
+      </SectionContainer>
+
+      <!-- Sobre mí -->
+      <SectionContainer id="sobre-mi">
+        <h2
+          class="flex items-center mb-8 text-3xl font-bold gap-x-3 text-zinc-900 dark:text-zinc-100"
+        >
+          <ProfileCheck class="size-8 text-indigo-500" />
+          Sobre mí
+        </h2>
+        <AboutMe />
+      </SectionContainer>
+    </div>
   </main>
-  <div class="space-y-24">
-    <SectionContainer id="experiencia">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
-        <Briefcase class="size-8" />
-        Experiencia laboral
-      </h2>
-      <Experience />
-    </SectionContainer>
-
-    <SectionContainer id="proyectos">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
-      >
-        <CodeIcon class="size-7" />
-        Educación
-      </h2>
-      <Projects />
-    </SectionContainer>
-
-    <SectionContainer id="sobre-mi">
-      <h2
-        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
-      >
-        <ProfileCheck class="size-8" />
-        Sobre mí
-      </h2>
-      <AboutMe />
-    </SectionContainer>
-  </div>
 </Layout>

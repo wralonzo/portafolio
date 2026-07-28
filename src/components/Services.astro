@@ -1,0 +1,91 @@
+---
+import MailIcon from "./icons/Mail.astro";
+
+const SERVICES = [
+  {
+    icon: "📱",
+    title: "Desarrollo Móvil Multiplataforma (iOS & Android)",
+    description:
+      "Construcción de aplicaciones móviles nativas y multiplataforma de alto rendimiento utilizando Flutter, React Native, Jetpack Compose y Kotlin Multiplatform (KMP). Incluye geolocalización GPS, mapas, escaneo QR y sincronización offline en SQLite.",
+    tags: ["Flutter", "React Native", "KMP", "Jetpack Compose", "SQLite", "GPS"],
+  },
+  {
+    icon: "⚡",
+    title: "Arquitectura Backend & APIs Escalables",
+    description:
+      "Diseño e implementación de microservicios distribuídos y APIs REST/GraphQL seguras utilizando Node.js (NestJS), Java Spring Boot (JPA), Rust y Python. Enfoque en código limpio, patrones CQRS y baja latencia.",
+    tags: ["NestJS", "Node.js", "Spring Boot", "Rust", "Python", "GraphQL"],
+  },
+  {
+    icon: "🔒",
+    title: "Biometría Facial, OCR & Seguridad Digital",
+    description:
+      "Integración de pasarelas de onboarding digital con reconocimiento facial biométrico (FacePhi), escaneo inteligente de documentos OCR, cifrado de datos AES/IV y cumplimiento de estándares del sector financiero.",
+    tags: ["FacePhi", "Reconocimiento Facial", "OCR", "Cifrado AES", "Seguridad"],
+  },
+  {
+    icon: "☁️",
+    title: "DevOps, Infraestructura Cloud & DBs",
+    description:
+      "Contenerización de aplicaciones con Docker y automatización de despliegues en AWS y VPS Linux. Configuración de CI/CD, monitoreo CloudWatch y optimización de bases de datos relacionales y NoSQL.",
+    tags: ["AWS", "Docker", "PostgreSQL", "Oracle PL/SQL", "MongoDB", "Linux"],
+  },
+];
+---
+
+<div class="space-y-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {
+      SERVICES.map((service) => (
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm flex flex-col justify-between transition duration-300 hover:border-indigo-500/50 hover:shadow-lg">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/40">
+                {service.icon}
+              </span>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 leading-snug">
+                {service.title}
+              </h3>
+            </div>
+
+            <p class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed mb-4">
+              {service.description}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-200/60 dark:border-zinc-800/60">
+            {service.tags.map((tag) => (
+              <span class="px-2.5 py-0.5 text-xs font-semibold rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-zinc-700/60">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Freelance CTA Banner -->
+  <div
+    class="p-8 rounded-3xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
+  >
+    <div class="absolute -right-10 -bottom-10 size-48 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+
+    <div class="space-y-2 text-center md:text-left z-10">
+      <h3 class="text-2xl font-extrabold tracking-tight">
+        ¿Tienes una idea o proyecto en mente? 🚀
+      </h3>
+      <p class="text-indigo-100 text-sm sm:text-base max-w-xl">
+        Ofrezco servicios de consultoría y desarrollo independiente (Freelance). Trabajemos juntos para construir soluciones móviles y web robustas, rápidas y a medida.
+      </p>
+    </div>
+
+    <a
+      href="mailto:williamalonzo4519@gmail.com?subject=Cotización%20de%20Proyecto%20Freelance%20-%20Willian%20Alonzo&body=Hola%20Willian,%20me%20gustaría%20cotizar%20un%20proyecto..."
+      class="z-10 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-indigo-950 bg-white hover:bg-zinc-100 rounded-full shadow-lg hover:scale-105 transition active:scale-95 shrink-0"
+    >
+      <MailIcon class="size-5 text-indigo-600" />
+      <span>Solicitar Cotización</span>
+    </a>
+  </div>
+</div>

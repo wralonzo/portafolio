@@ -1,118 +1,114 @@
 ---
 import GitHub from "./icons/GitHub.astro";
-import NextJS from "./icons/NextJS.astro";
-import Tailwind from "./icons/Tailwind.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 
-const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-};
 const PROJECTS = [
   {
-    title: "Ingenieria en sistemas",
-    description: "Universidad Mariano Gálvez de Guatemala, Guatemala",
-    link: "https://umg.edu.gt/ingenieria/sistemas",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMeEAv4RI3ZdVY7IW4PwNrwAOOrfKtB5ZD7w&s",
-    tags: [],
+    title: "Aplicación Bancaria & Onboarding Financiero (BDG S.A.)",
+    description:
+      "Lideré la integración de reconocimiento facial biométrico (FacePhi) y OCR para la incorporación digital de clientes en la banca, junto con SDKs de monitoreo para detección de vulnerabilidades. Desarrollé APIs de alta seguridad para información sensible bajo estándares estrictos del sector financiero.",
+    image: "/projects/web-wrapp.png",
+    tags: [
+      { name: "Biometría FacePhi / OCR", class: "bg-purple-950/40 text-purple-300 border-purple-800/50" },
+      { name: "Node.js", class: "bg-emerald-950/40 text-emerald-300 border-emerald-800/50" },
+      { name: "Java Spring Boot", class: "bg-orange-950/40 text-orange-300 border-orange-800/50" },
+      { name: "Oracle PL/SQL", class: "bg-red-950/40 text-red-300 border-red-800/50" },
+      { name: "Ionic / Angular", class: "bg-blue-950/40 text-blue-300 border-blue-800/50" },
+    ],
   },
   {
-    title: "SCRUMstudy",
-    description: "SCRUMstudy - Accreditation Body for Scrum and Agile",
-    link: "https://www.scrumstudy.com/certification/verify?type=SFC&number=1011824",
-    image: "https://www.scrumstudy.com/Scrum-Images/brand-logo/badge-SFC.png",
-    tags: [],
+    title: "Sistema de Gestión Logística & Ventas de Metales (BDG S.A.)",
+    description:
+      "Desarrollo de solución multiplataforma para el reporte en tiempo real y gestión operativa de logística de metales. Diseñé y desplegué la arquitectura backend escalable utilizando contenedores Docker sobre AWS con notificaciones masivas OneSignal.",
+    image: "/projects/nestjs-ms.png",
+    tags: [
+      { name: "React Native", class: "bg-sky-950/40 text-sky-300 border-sky-800/50" },
+      { name: "NestJS", class: "bg-red-950/40 text-red-300 border-red-800/50" },
+      { name: "Docker & AWS", class: "bg-cyan-950/40 text-cyan-300 border-cyan-800/50" },
+      { name: "PostgreSQL & MongoDB", class: "bg-indigo-950/40 text-indigo-300 border-indigo-800/50" },
+      { name: "OneSignal", class: "bg-amber-950/40 text-amber-300 border-amber-800/50" },
+    ],
   },
   {
-    title: "UDEMY",
-    description: "TypeScript sin fronteras: guía definitiva, Prototypes",
-    link: "https://www.udemy.com/certificate/UC-10f33e29-9a5c-4c1a-9f71-8ce9d0b63a58/",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9tXhhNXbzL8KBeDoyMfLww-edaY1H0deWqw&s",
-    tags: [],
+    title: "Somos Progreso – Control de Personal & Geofencing (Sysavan)",
+    description:
+      "Implementación de un sistema automatizado de Geofencing para marcaciones de ingreso y salida en tiempo real. Desarrollado para Cementos Progreso, mejorando drásticamente el control y precisión de asistencia del personal en campo.",
+    link: "https://play.google.com/store/apps/details?id=com.mc.cemprog",
+    github: "https://github.com/wralonzo/app-marcajes",
+    image: "/projects/flutter-app.png",
+    tags: [
+      { name: "Flutter / Dart", class: "bg-cyan-950/40 text-cyan-300 border-cyan-800/50" },
+      { name: "Geofencing & GPS", class: "bg-emerald-950/40 text-emerald-300 border-emerald-800/50" },
+      { name: "Google Maps API", class: "bg-blue-950/40 text-blue-300 border-blue-800/50" },
+      { name: "SQLite Offline", class: "bg-indigo-950/40 text-indigo-300 border-indigo-800/50" },
+    ],
   },
   {
-    title: "UDEMY",
-    description: "Docker - Guía práctica de uso para desarrolladores",
-    link: "https://www.udemy.com/certificate/UC-ac730668-64ea-41fa-88d3-45d4a8433297/",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwNLcCUBaC99r3nN10jX1asJQgcmxVzbtkgg&s",
-    tags: [],
-  },
-  {
-    title: "UDEMY",
-    description: "Nest: Desarrollo backend escalable con Node, redis, postgres",
-    link: "https://www.udemy.com/certificate/UC-b77b6577-35bc-492f-8959-b8af467a002f/",
-    image: "https://miro.medium.com/v2/resize:fit:1040/0*zRv5TkRmhAyLnG-t.png",
-    tags: [],
-  },
-  {
-    title: "UDEMY",
-    description: "Flutter: Una introducción al SDK de Google, (dart)",
-    link: "https://www.udemy.com/certificate/UC-317dda12-ea31-4f02-9d92-f70e2ab2f500/?utm_medium=email&utm_campaign=email&utm_source=sendgrid.com",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQdTuz5Nhz4jIoJadKkX1ZfnaT4gnqgjuTg&s",
-    tags: [],
+    title: "NestJS Microservices Monorepo & API Gateway",
+    description:
+      "Arquitectura distribuida de microservicios con API Gateway centralizado para orquestar la comunicación interna entre microservicios de Ventas y Clientes. Incluye CQRS, registrador en AWS CloudWatch y arquitectura limpia.",
+    link: "https://github.com/wralonzo/nestjs-monorepo-ms",
+    github: "https://github.com/wralonzo/nestjs-monorepo-ms",
+    image: "/projects/java-retail.png",
+    tags: [
+      { name: "NestJS", class: "bg-red-950/40 text-red-300 border-red-800/50" },
+      { name: "Microservicios", class: "bg-indigo-950/40 text-indigo-300 border-indigo-800/50" },
+      { name: "TypeScript", class: "bg-blue-950/40 text-blue-300 border-blue-800/50" },
+      { name: "Docker", class: "bg-cyan-950/40 text-cyan-300 border-cyan-800/50" },
+    ],
   },
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
+<div class="flex flex-col gap-y-12">
   {
-    PROJECTS.map(({ image, title, description, tags, link }) => (
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        <div class="w-full md:w-1/3">
-          <div>
-            <img
-              alt="Recién llegado vs 5 años en Nueva Zelanda"
-              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale- md:group-hover:scale-105"
-              loading="lazy"
-              src={image}
-              style={{ width: "50%" }}
-            />
-          </div>
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-6 group md:flex-row md:space-x-8 md:space-y-0 p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm transition duration-300 hover:border-indigo-500/50 hover:shadow-lg">
+        <div class="w-full md:w-1/2 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700/60">
+          <img
+            alt={title}
+            class="object-cover object-center w-full h-56 sm:h-64 transition duration-500 group-hover:scale-105"
+            loading="lazy"
+            src={image}
+          />
         </div>
 
-        <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {title}
-          </h3>
-          <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
-              {tags.map((tag: any) => (
-                <li>
-                  <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
+        <div class="w-full md:w-1/2 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              {title}
+            </h3>
 
-            <div class="mt-2 text-gray-700 dark:text-gray-400">
-              {description}
+            <div class="flex flex-wrap gap-1.5 mt-3 mb-4">
+              {tags.map((tag) => (
+                <span
+                  class={`px-2.5 py-1 rounded-md text-xs font-semibold border ${tag.class}`}
+                >
+                  {tag.name}
+                </span>
+              ))}
             </div>
-            <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {link && (
-                <LinkButton href={link}>
-                  <Link class="size-4" />
-                  Preview
-                </LinkButton>
-              )}
-            </footer>
+
+            <p class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
+              {description}
+            </p>
           </div>
+
+          <footer class="flex items-center justify-start mt-6 gap-x-4">
+            {github && (
+              <LinkButton href={github}>
+                <GitHub class="size-4" />
+                Ver Código
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <Link class="size-4" />
+                Ver Proyecto
+              </LinkButton>
+            )}
+          </footer>
         </div>
       </article>
     ))
