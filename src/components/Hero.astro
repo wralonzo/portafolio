@@ -26,15 +26,15 @@ import GitHub from "./icons/GitHub.astro";
         class="flex items-center transition hover:scale-105"
       >
         <Badge>
-          Disponible para trabajar
+          <span data-i18n="hero.available">Disponible para trabajar</span>
         </Badge>
       </a>
 
-      <span class="px-3 py-1.5 text-xs font-semibold rounded-full bg-purple-100/80 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 shadow-sm backdrop-blur-sm">
+      <span data-i18n="hero.degree" class="px-3 py-1.5 text-xs font-semibold rounded-full bg-purple-100/80 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 shadow-sm backdrop-blur-sm">
         🎓 M.Sc. Redes & Telecom (En Curso) | Ing. en Sistemas
       </span>
 
-      <span class="px-3 py-1.5 text-xs font-semibold rounded-full bg-indigo-50/80 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800/60 shadow-sm backdrop-blur-sm">
+      <span data-i18n="hero.lang" class="px-3 py-1.5 text-xs font-semibold rounded-full bg-indigo-50/80 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800/60 shadow-sm backdrop-blur-sm">
         🌐 ES Nativo | 🇺🇸 EN B1 (Técnico)
       </span>
     </div>
@@ -43,24 +43,24 @@ import GitHub from "./icons/GitHub.astro";
   <h1
     class="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-white"
   >
-    Hola, soy <span class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Willian Alonzo</span>
+    <span data-i18n="hero.greeting">Hola, soy</span> <span class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Willian Alonzo</span>
   </h1>
 
-  <h2 class="mt-4 text-lg sm:text-xl font-semibold text-indigo-600 dark:text-indigo-400 leading-snug">
+  <h2 data-i18n="hero.role" class="mt-4 text-lg sm:text-xl font-semibold text-indigo-600 dark:text-indigo-400 leading-snug">
     Desarrollador de Software Full Stack (Mobile, Web & Backend) | Cloud & DevOps
   </h2>
 
   <p
+    data-i18n="hero.bio"
     class="mt-6 text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal"
   >
-    Ingeniero de software con <strong class="text-zinc-900 dark:text-white font-semibold">más de 3 años de experiencia</strong> en el diseño e implementación de soluciones digitales para los sectores de <strong class="text-indigo-600 dark:text-indigo-300 font-semibold">Banca, Logística y Gestión Empresarial</strong> en Guatemala. 
-    Especializado en arquitectura móvil (<strong class="text-purple-600 dark:text-purple-300 font-semibold">Flutter, React Native, iOS Swift, Jetpack Compose, KMP, Ionic</strong>), backend escalable (<strong class="text-emerald-600 dark:text-emerald-400 font-semibold">Node.js/NestJS, Spring Boot, Python, Rust</strong>), biometría facial (FacePhi), Geofencing y despliegues en la nube con <strong class="font-semibold text-zinc-900 dark:text-white">Docker en AWS</strong>.
+    Ingeniero de software con más de 3 años de experiencia en el diseño e implementación de soluciones digitales para los sectores de Banca, Logística y Gestión Empresarial en Guatemala. Especializado en arquitectura móvil (Flutter, React Native, iOS Swift, Jetpack Compose, KMP, Ionic), backend escalable (Node.js/NestJS, Spring Boot, Python, Rust), biometría facial (FacePhi), Geofencing y despliegues en la nube con Docker en AWS.
   </p>
 
   <nav class="flex flex-wrap gap-3 mt-8">
     <SocialPill href="mailto:williamalonzo4519@gmail.com">
       <MailIcon class="size-4" />
-      Contáctame
+      <span data-i18n="hero.contactMe">Contáctame</span>
     </SocialPill>
     
     <SocialPill href="https://www.linkedin.com/in/willian-alonzo-952288173/">
@@ -80,7 +80,7 @@ import GitHub from "./icons/GitHub.astro";
       <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
       </svg>
-      <span id="copy-text">Copiar Email</span>
+      <span id="copy-text" data-i18n="hero.copyEmail">Copiar Email</span>
     </button>
   </nav>
 </div>
@@ -91,9 +91,9 @@ import GitHub from "./icons/GitHub.astro";
     navigator.clipboard.writeText(email).then(() => {
       const copyText = document.getElementById("copy-text");
       if (copyText) {
-        copyText.textContent = "¡Copiado!";
+        copyText.textContent = localStorage.getItem("preferred-lang") === "en" ? "Copied!" : "¡Copiado!";
         setTimeout(() => {
-          copyText.textContent = "Copiar Email";
+          copyText.textContent = localStorage.getItem("preferred-lang") === "en" ? "Copy Email" : "Copiar Email";
         }, 2000);
       }
     });

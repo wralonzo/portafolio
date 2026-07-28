@@ -5,6 +5,8 @@ import LinkButton from "./LinkButton.astro";
 
 const PROJECTS = [
   {
+    titleKey: "p.banking.title",
+    descKey: "p.banking.desc",
     title: "Aplicación Bancaria & Onboarding Financiero (BDG S.A.)",
     description:
       "Lideré la integración de reconocimiento facial biométrico (FacePhi) y OCR para la incorporación digital de clientes en la banca, junto con SDKs de monitoreo para detección de vulnerabilidades. Desarrollé APIs de alta seguridad para información sensible bajo estándares estrictos del sector financiero.",
@@ -18,6 +20,8 @@ const PROJECTS = [
     ],
   },
   {
+    titleKey: "p.metals.title",
+    descKey: "p.metals.desc",
     title: "Sistema de Gestión Logística & Ventas de Metales (BDG S.A.)",
     description:
       "Desarrollo de solución multiplataforma para el reporte en tiempo real y gestión operativa de logística de metales. Diseñé y desplegué la arquitectura backend escalable utilizando contenedores Docker sobre AWS con notificaciones masivas OneSignal.",
@@ -31,6 +35,8 @@ const PROJECTS = [
     ],
   },
   {
+    titleKey: "p.geofence.title",
+    descKey: "p.geofence.desc",
     title: "Somos Progreso – Control de Personal & Geofencing (Sysavan)",
     description:
       "Implementación de un sistema automatizado de Geofencing para marcaciones de ingreso y salida en tiempo real. Desarrollado para Cementos Progreso, mejorando drásticamente el control y precisión de asistencia del personal en campo.",
@@ -45,6 +51,8 @@ const PROJECTS = [
     ],
   },
   {
+    titleKey: "p.nestjs.title",
+    descKey: "p.nestjs.desc",
     title: "NestJS Microservices Monorepo & API Gateway",
     description:
       "Arquitectura distribuida de microservicios con API Gateway centralizado para orquestar la comunicación interna entre microservicios de Ventas y Clientes. Incluye CQRS, registrador en AWS CloudWatch y arquitectura limpia.",
@@ -63,7 +71,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-12">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ image, title, description, tags, link, github, titleKey, descKey }) => (
       <article class="flex flex-col space-x-0 space-y-6 group md:flex-row md:space-x-8 md:space-y-0 p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm transition duration-300 hover:border-indigo-500/50 hover:shadow-lg">
         <div class="w-full md:w-1/2 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700/60">
           <img
@@ -76,7 +84,7 @@ const PROJECTS = [
 
         <div class="w-full md:w-1/2 flex flex-col justify-between">
           <div>
-            <h3 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+            <h3 data-i18n={titleKey} class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
               {title}
             </h3>
 
@@ -90,7 +98,7 @@ const PROJECTS = [
               ))}
             </div>
 
-            <p class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
+            <p data-i18n={descKey} class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
               {description}
             </p>
           </div>
@@ -99,13 +107,13 @@ const PROJECTS = [
             {github && (
               <LinkButton href={github}>
                 <GitHub class="size-4" />
-                Ver Código
+                <span data-i18n="projects.viewCode">Ver Código</span>
               </LinkButton>
             )}
             {link && (
               <LinkButton href={link}>
                 <Link class="size-4" />
-                Ver Proyecto
+                <span data-i18n="projects.viewProject">Ver Proyecto</span>
               </LinkButton>
             )}
           </footer>

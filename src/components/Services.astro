@@ -4,6 +4,8 @@ import MailIcon from "./icons/Mail.astro";
 const SERVICES = [
   {
     icon: "📱",
+    titleKey: "services.mobileTitle",
+    descKey: "services.mobileDesc",
     title: "Desarrollo Móvil Multiplataforma (iOS & Android)",
     description:
       "Construcción de aplicaciones móviles nativas y multiplataforma de alto rendimiento utilizando Flutter, React Native, Jetpack Compose y Kotlin Multiplatform (KMP). Incluye geolocalización GPS, mapas, escaneo QR y sincronización offline en SQLite.",
@@ -11,6 +13,8 @@ const SERVICES = [
   },
   {
     icon: "⚡",
+    titleKey: "services.backendTitle",
+    descKey: "services.backendDesc",
     title: "Arquitectura Backend & APIs Escalables",
     description:
       "Diseño e implementación de microservicios distribuídos y APIs REST/GraphQL seguras utilizando Node.js (NestJS), Java Spring Boot (JPA), Rust y Python. Enfoque en código limpio, patrones CQRS y baja latencia.",
@@ -18,6 +22,8 @@ const SERVICES = [
   },
   {
     icon: "🔒",
+    titleKey: "services.securityTitle",
+    descKey: "services.securityDesc",
     title: "Biometría Facial, OCR & Seguridad Digital",
     description:
       "Integración de pasarelas de onboarding digital con reconocimiento facial biométrico (FacePhi), escaneo inteligente de documentos OCR, cifrado de datos AES/IV y cumplimiento de estándares del sector financiero.",
@@ -25,6 +31,8 @@ const SERVICES = [
   },
   {
     icon: "☁️",
+    titleKey: "services.cloudTitle",
+    descKey: "services.cloudDesc",
     title: "DevOps, Infraestructura Cloud & DBs",
     description:
       "Contenerización de aplicaciones con Docker y automatización de despliegues en AWS y VPS Linux. Configuración de CI/CD, monitoreo CloudWatch y optimización de bases de datos relacionales y NoSQL.",
@@ -43,12 +51,12 @@ const SERVICES = [
               <span class="text-3xl p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/40">
                 {service.icon}
               </span>
-              <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 leading-snug">
+              <h3 data-i18n={service.titleKey} class="text-xl font-bold text-zinc-900 dark:text-zinc-100 leading-snug">
                 {service.title}
               </h3>
             </div>
 
-            <p class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed mb-4">
+            <p data-i18n={service.descKey} class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed mb-4">
               {service.description}
             </p>
           </div>
@@ -72,10 +80,10 @@ const SERVICES = [
     <div class="absolute -right-10 -bottom-10 size-48 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
 
     <div class="space-y-2 text-center md:text-left z-10">
-      <h3 class="text-2xl font-extrabold tracking-tight">
+      <h3 data-i18n="services.bannerTitle" class="text-2xl font-extrabold tracking-tight">
         ¿Tienes una idea o proyecto en mente? 🚀
       </h3>
-      <p class="text-indigo-100 text-sm sm:text-base max-w-xl">
+      <p data-i18n="services.bannerDesc" class="text-indigo-100 text-sm sm:text-base max-w-xl">
         Ofrezco servicios de consultoría y desarrollo independiente (Freelance). Trabajemos juntos para construir soluciones móviles y web robustas, rápidas y a medida.
       </p>
     </div>
@@ -85,7 +93,7 @@ const SERVICES = [
       class="z-10 inline-flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-indigo-950 bg-white hover:bg-zinc-100 rounded-full shadow-lg hover:scale-105 transition active:scale-95 shrink-0"
     >
       <MailIcon class="size-5 text-indigo-600" />
-      <span>Solicitar Cotización</span>
+      <span data-i18n="services.requestQuote">Solicitar Cotización</span>
     </a>
   </div>
 </div>

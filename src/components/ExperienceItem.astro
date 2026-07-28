@@ -9,9 +9,33 @@ interface Props {
   date: string;
   tools: string;
   highlights?: string[];
+  dateKey?: string;
+  titleKey?: string;
+  companyKey?: string;
+  descKey?: string;
+  h1Key?: string;
+  h2Key?: string;
+  h3Key?: string;
 }
 
-const { title, company, description, link, date, tools, highlights } = Astro.props;
+const {
+  title,
+  company,
+  description,
+  link,
+  date,
+  tools,
+  highlights,
+  dateKey,
+  titleKey,
+  companyKey,
+  descKey,
+  h1Key,
+  h2Key,
+  h3Key,
+} = Astro.props;
+
+const highlightKeys = [h1Key, h2Key, h3Key].filter(Boolean);
 ---
 
 <div
@@ -23,28 +47,28 @@ const { title, company, description, link, date, tools, highlights } = Astro.pro
 
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
     <div>
-      <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+      <h3 data-i18n={titleKey} class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
         {title}
       </h3>
-      <h4 class="text-base font-semibold text-indigo-600 dark:text-indigo-400">
+      <h4 data-i18n={companyKey} class="text-base font-semibold text-indigo-600 dark:text-indigo-400">
         {company}
       </h4>
     </div>
-    <time class="text-xs font-semibold px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 w-fit">
+    <time data-i18n={dateKey} class="text-xs font-semibold px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 w-fit">
       {date}
     </time>
   </div>
 
-  <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base my-3">
+  <p data-i18n={descKey} class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base my-3">
     {description}
   </p>
 
   {highlights && highlights.length > 0 && (
     <ul class="mb-4 space-y-1.5 text-sm text-zinc-700 dark:text-zinc-300">
-      {highlights.map((item) => (
+      {highlights.map((item, idx) => (
         <li class="flex items-start gap-2">
           <span class="text-indigo-500 font-bold">✓</span>
-          <span>{item}</span>
+          <span data-i18n={highlightKeys[idx]}>{item}</span>
         </li>
       ))}
     </ul>
@@ -62,7 +86,7 @@ const { title, company, description, link, date, tools, highlights } = Astro.pro
     link && (
       <div class="mt-2">
         <LinkInline href={link}>
-          Ver sitio / empresa{" "}
+          <span data-i18n="exp.viewSite">Ver sitio / empresa</span>{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="size-4 inline ml-0.5"

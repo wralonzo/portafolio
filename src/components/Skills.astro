@@ -1,6 +1,7 @@
 ---
 const SKILL_CATEGORIES = [
   {
+    titleKey: "skills.backend",
     title: "Backend & Microservicios",
     icon: "⚡",
     skills: [
@@ -17,6 +18,7 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
+    titleKey: "skills.mobile",
     title: "Desarrollo Mobile",
     icon: "📱",
     skills: [
@@ -32,6 +34,7 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
+    titleKey: "skills.frontend",
     title: "Frontend & Web Apps",
     icon: "🌐",
     skills: [
@@ -44,6 +47,7 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
+    titleKey: "skills.cloud",
     title: "Cloud, DevOps & Herramientas",
     icon: "☁️",
     skills: [
@@ -65,7 +69,7 @@ const SKILL_CATEGORIES = [
       <div class="p-6 rounded-2xl bg-white/70 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 shadow-sm backdrop-blur-sm transition duration-300 hover:border-indigo-500/50 hover:shadow-md">
         <div class="flex items-center gap-3 mb-4">
           <span class="text-2xl">{category.icon}</span>
-          <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+          <h3 data-i18n={category.titleKey} class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
             {category.title}
           </h3>
         </div>
