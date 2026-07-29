@@ -3,7 +3,11 @@ name: Deploy Astro Project
 on:
   push:
     branches:
-      - master # Despliega cuando hay un push en la rama main
+      - main
+      - master
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -11,21 +15,24 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18" # Asegúrate de que la versión de Node.js sea compatible con tu proyecto
+          node-version: "24.x"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci || npm install
+
+      - name: Check TypeScript diagnostics
+        run: npx astro check
 
       - name: Build project
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Ajusta esto si tu directorio de salida es diferente
+          publish_dir: ./dist

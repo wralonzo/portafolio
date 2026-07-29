@@ -3,13 +3,12 @@
 
 <div class="relative inline-block text-left pointer-events-auto">
   <button
-    id="lang-toggle-btn"
     type="button"
     aria-label="Cambiar idioma / Switch language"
-    class="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition cursor-pointer"
+    class="lang-toggle-btn flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition cursor-pointer"
   >
     <span class="text-sm">🌐</span>
-    <span id="current-lang-text">ES</span>
+    <span class="current-lang-text">ES</span>
   </button>
 </div>
 
@@ -20,10 +19,11 @@
     localStorage.setItem("preferred-lang", lang);
     document.documentElement.setAttribute("lang", lang);
 
-    const currentLangText = document.getElementById("current-lang-text");
-    if (currentLangText) {
-      currentLangText.textContent = lang.toUpperCase();
-    }
+    // Update all language text indicators (desktop & mobile)
+    const currentLangTexts = document.querySelectorAll(".current-lang-text");
+    currentLangTexts.forEach((el) => {
+      el.textContent = lang.toUpperCase();
+    });
 
     const dict = translations[lang] || translations.es;
     const elements = document.querySelectorAll("[data-i18n]");
@@ -44,10 +44,13 @@
   document.addEventListener("astro:page-load", () => {
     initLang();
 
-    const btn = document.getElementById("lang-toggle-btn");
-    btn?.addEventListener("click", () => {
-      const current = localStorage.getItem("preferred-lang") === "en" ? "es" : "en";
-      applyLanguage(current);
+    // Attach click listener to ALL language buttons (desktop & mobile)
+    const btns = document.querySelectorAll(".lang-toggle-btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const current = localStorage.getItem("preferred-lang") === "en" ? "es" : "en";
+        applyLanguage(current);
+      });
     });
   });
 </script>
