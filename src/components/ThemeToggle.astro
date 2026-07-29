@@ -13,6 +13,13 @@ import MoonIcon from "./icons/Moon.astro";
 </button>
 
 <script>
+  function updateThemeMeta(isDark: boolean) {
+    const themeMeta = document.getElementById("meta-theme-color");
+    if (themeMeta) {
+      themeMeta.setAttribute("content", isDark ? "#09090b" : "#fafafa");
+    }
+  }
+
   function applyTheme() {
     const isDark =
       localStorage.getItem("theme") === "dark" ||
@@ -24,23 +31,33 @@ import MoonIcon from "./icons/Moon.astro";
     } else {
       document.documentElement.classList.remove("dark");
     }
+    updateThemeMeta(isDark);
   }
 
-  document.addEventListener("astro:page-load", () => {
+  function setupToggleListeners() {
     applyTheme();
 
     const btns = document.querySelectorAll(".theme-toggle-btn");
     btns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const isDark = document.documentElement.classList.contains("dark");
-        if (isDark) {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("theme", "light");
-        } else {
-          document.documentElement.classList.add("dark");
-          localStorage.setItem("theme", "dark");
-        }
-      });
+      btn.removeEventListener("click", handleToggle);
+      btn.addEventListener("click", handleToggle);
     });
-  });
+  }
+
+  function handleToggle() {
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      updateThemeMeta(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      updateThemeMeta(true);
+    }
+  }
+
+  setupToggleListeners();
+  document.addEventListener("astro:page-load", setupToggleListeners);
+  document.addEventListener("astro:after-swap", setupToggleListeners);
 </script>

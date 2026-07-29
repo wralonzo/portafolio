@@ -24,9 +24,27 @@ const siteUrl = "https://wralonzo.netlify.app";
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="google932d3a053da4cdc7" />
+    <meta id="meta-theme-color" name="theme-color" content="#fafafa" />
     <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Synchronous Inline Script for Immediate Theme Application (Prevents FOUC on Mobile) -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+
+      const isDark = getTheme() === "dark";
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
 
     <!-- Security Headers Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
