@@ -16,7 +16,7 @@ const siteUrl = "https://wralonzo.netlify.app";
 ---
 
 <!doctype html>
-<html lang="es" class="bg-zinc-50 dark:bg-zinc-950">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +29,7 @@ const siteUrl = "https://wralonzo.netlify.app";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Synchronous Inline Script for Android Chrome & iOS Theme Application (Prevents Forced Dark Mode) -->
+    <!-- Synchronous Inline Script for Immediate Theme Application on iOS & Android -->
     <script is:inline>
       (function() {
         const getTheme = () => {
@@ -135,10 +135,12 @@ const siteUrl = "https://wralonzo.netlify.app";
     <style is:global>
       html:not(.dark) {
         color-scheme: light;
+        background-color: #fafafa !important;
       }
 
       html.dark {
         color-scheme: dark;
+        background-color: #09090b !important;
       }
 
       html {
@@ -151,6 +153,11 @@ const siteUrl = "https://wralonzo.netlify.app";
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
+        background-color: #fafafa;
+      }
+
+      html.dark body {
+        background-color: #09090b;
       }
 
       @media (prefers-reduced-motion: reduce) {
