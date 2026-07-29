@@ -54,14 +54,14 @@ const navItems = [
 >
   <!-- Desktop Executive Glassmorphism Navbar -->
   <nav
-    class="pointer-events-auto hidden md:flex items-center justify-between gap-4 px-5 py-2 rounded-full backdrop-blur-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200/80 dark:border-zinc-800/80 shadow-xl shadow-zinc-950/5 dark:shadow-black/40 w-full max-w-5xl transition-all duration-300"
+    class="pointer-events-auto hidden md:flex items-center justify-between gap-3 lg:gap-4 px-5 py-2 rounded-full backdrop-blur-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200/80 dark:border-zinc-800/80 shadow-xl shadow-zinc-950/5 dark:shadow-black/40 w-full max-w-5xl transition-all duration-300"
   >
     <!-- Brand Avatar & Name -->
     <a
       href="/#inicio"
-      class="flex items-center gap-2.5 text-sm font-bold text-zinc-900 dark:text-zinc-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition group"
+      class="flex items-center gap-2.5 text-sm font-bold text-zinc-900 dark:text-zinc-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition group whitespace-nowrap shrink-0"
     >
-      <div class="relative">
+      <div class="relative shrink-0">
         <img
           src="/projects/profile.jpeg"
           alt="Willian Alonzo"
@@ -69,15 +69,15 @@ const navItems = [
         />
         <span class="absolute bottom-0 right-0 size-2.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-zinc-900"></span>
       </div>
-      <span class="tracking-tight">Willian Alonzo</span>
+      <span class="tracking-tight whitespace-nowrap">Willian Alonzo</span>
     </a>
 
     <!-- Center Navigation Links -->
-    <div class="flex items-center gap-1">
+    <div class="flex items-center gap-0.5 lg:gap-1">
       {
         navItems.map((link) => (
           <a
-            class="nav-link relative block px-2.5 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 rounded-full whitespace-nowrap text-zinc-600 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/80"
+            class="nav-link relative block px-2 sm:px-2.5 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 rounded-full whitespace-nowrap text-zinc-600 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/80"
             aria-label={link.label}
             data-i18n={link.i18nKey}
             href={link.url}
@@ -89,7 +89,7 @@ const navItems = [
     </div>
 
     <!-- Right Controls: Language Toggle, Theme Toggle & Contact Button -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 shrink-0">
       <LanguageToggle />
       <ThemeToggle />
       <a
@@ -111,17 +111,17 @@ const navItems = [
     >
       <a
         href="/#inicio"
-        class="flex items-center gap-2 text-sm font-bold text-zinc-900 dark:text-zinc-100"
+        class="flex items-center gap-2 text-sm font-bold text-zinc-900 dark:text-zinc-100 whitespace-nowrap shrink-0"
       >
         <img
           src="/projects/profile.jpeg"
           alt="Willian Alonzo"
-          class="size-7 rounded-full object-cover ring-1 ring-indigo-500"
+          class="size-7 rounded-full object-cover ring-1 ring-indigo-500 shrink-0"
         />
-        <span>Willian Alonzo</span>
+        <span class="whitespace-nowrap">Willian Alonzo</span>
       </a>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 shrink-0">
         <LanguageToggle />
         <ThemeToggle />
         <button
