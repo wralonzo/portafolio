@@ -28,8 +28,10 @@ import MoonIcon from "./icons/Moon.astro";
 
     if (isDark) {
       document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
     }
     updateThemeMeta(isDark);
   }
@@ -48,10 +50,12 @@ import MoonIcon from "./icons/Moon.astro";
     const isDark = document.documentElement.classList.contains("dark");
     if (isDark) {
       document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
       localStorage.setItem("theme", "light");
       updateThemeMeta(false);
     } else {
       document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
       localStorage.setItem("theme", "dark");
       updateThemeMeta(true);
     }

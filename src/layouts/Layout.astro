@@ -16,7 +16,7 @@ const siteUrl = "https://wralonzo.netlify.app";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="bg-zinc-50 dark:bg-zinc-950">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,21 +29,31 @@ const siteUrl = "https://wralonzo.netlify.app";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Synchronous Inline Script for Immediate Theme Application (Prevents FOUC on Mobile) -->
+    <!-- Synchronous Inline Script for Android Chrome & iOS Theme Application (Prevents Forced Dark Mode) -->
     <script is:inline>
-      const getTheme = () => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      };
+      (function() {
+        const getTheme = () => {
+          if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+            return localStorage.getItem("theme");
+          }
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        };
 
-      const isDark = getTheme() === "dark";
-      if (isDark) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
+        const theme = getTheme();
+        const isDark = theme === "dark";
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+          document.documentElement.style.colorScheme = "dark";
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.style.colorScheme = "light";
+        }
+
+        const themeMeta = document.getElementById("meta-theme-color");
+        if (themeMeta) {
+          themeMeta.setAttribute("content", isDark ? "#09090b" : "#fafafa");
+        }
+      })();
     </script>
 
     <!-- Security Headers Meta Tags -->
@@ -123,8 +133,12 @@ const siteUrl = "https://wralonzo.netlify.app";
     <Footer />
 
     <style is:global>
-      :root {
-        color-scheme: light dark;
+      html:not(.dark) {
+        color-scheme: light;
+      }
+
+      html.dark {
+        color-scheme: dark;
       }
 
       html {
