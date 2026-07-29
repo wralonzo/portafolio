@@ -116,11 +116,11 @@ const siteUrl = "https://wralonzo.netlify.app";
   </head>
 
   <body class="relative text-zinc-800 dark:text-zinc-100 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300">
-    <!-- Smooth background radial glow -->
+    <!-- Smooth background radial glow with solid fallbacks -->
     <div
       class="fixed inset-0 z-[-10] min-h-screen w-full pointer-events-none
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(79,70,229,0.15),rgba(9,9,11,0))]"
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),#fafafa)]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(79,70,229,0.15),#09090b)]"
     >
     </div>
 
@@ -133,13 +133,15 @@ const siteUrl = "https://wralonzo.netlify.app";
     <Footer />
 
     <style is:global>
-      html:not(.dark) {
-        color-scheme: light;
+      html:not(.dark),
+      html:not(.dark) body {
+        color-scheme: light !important;
         background-color: #fafafa !important;
       }
 
-      html.dark {
-        color-scheme: dark;
+      html.dark,
+      html.dark body {
+        color-scheme: dark !important;
         background-color: #09090b !important;
       }
 
@@ -153,11 +155,6 @@ const siteUrl = "https://wralonzo.netlify.app";
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
-        background-color: #fafafa;
-      }
-
-      html.dark body {
-        background-color: #09090b;
       }
 
       @media (prefers-reduced-motion: reduce) {
